@@ -1,8 +1,3 @@
-*{
-  padding: 0;
-  margin: 0;
-}
-
 $green-strong: rgb(14, 55, 28);
 $green-medium: rgb(31, 135, 66);
 $green-low: rgb(95, 197, 62);
@@ -14,7 +9,7 @@ body{
 }
 
 nav{
-  background-color: yellowgreen;
+  background-color: black;
   list-style: none;
   // width: 100%;
   display: flex;
@@ -77,5 +72,3 @@ border: solid salmon 1px;
 button{
   background-color: red;
 }
-
-
