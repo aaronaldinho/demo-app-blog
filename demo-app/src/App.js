@@ -1,5 +1,4 @@
-
-import './components/App.scss'
+import './components/app.scss'
 import React from "react";
 // import blogData from './components/data.js'
 import {
@@ -44,13 +43,3 @@ const Home = () => (
       <img src='' alt=""/>
   </div>
 )
-
-const Blog = () =>{
-  <div>
-    <h5>hola yo soy el blog</h5>
-  </div>
-}
-
-const DetailsPage = () =>{
-  <h4>Ahor estas en details</h4>
-}
