@@ -14,7 +14,6 @@ $font-family: 'Inter', sans-serif;
 body{
   width: 100%;
   height: 100vh;
-
 }
 
 nav{
@@ -26,12 +25,21 @@ nav{
   padding: 1.5em;
   color: $green-strong;
   font-size: x-large;
+  color: $green-strong;
   &>ul{
     display: flex;
     justify-content: space-between;
     width: 25%;
     list-style: none;
+    list-style: $green-strong;
   }
+//   &>li{
+//       color: red;
+//   }
+}
+
+.li-color{
+    color: red;
 }
 
 //Details-page
@@ -42,6 +50,8 @@ nav{
   grid-template-columns: repeat(3, 1fr);
   font-family: 'Inter', sans-serif;
   gap: 1.3em;
+  justify-content: left;
+  align-items: left;
   
   &>.div-key>img{
       height: 220px;
@@ -58,33 +68,34 @@ nav{
     display: flex;
     flex-direction: column;
     justify-content: left;
-    align-items: left;
+    align-items: center;
     line-height: 3em;
     margin: 5px;
     
-  &>div{
     &>h3{
       color: $green-strong;
       font-family: $font-family;
-      
+      position: relative;
+      left: -100px;
     }
     &>img{
-        border-radius: 10px;
+        border-radius: 15px;
         object-fit: cover;
       }
     &>img:hover {
         transform: scaleX(-1);
       }
-    }
     &>button{
       color: $green-medium;
       background-color: transparent;
       border: $green-low 3px double ;
       border-radius: 10px;
-      width: 35%;
+      width: 30%;
       height: 3em;
       font-family: 'Inter', sans-serif;
       font-weight: 900;
+      position: relative;
+      left: -50px;
     }
     &>button:hover{
         transform: scaleY(100px);
