@@ -4,8 +4,10 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  Route, Link,
 } from "react-router-dom";
+
+import Photo from './components/photo-1548016338-b00b4aa6a004 (1).jpeg'
 
 //components
 import Nav from './components/Nav'
@@ -21,15 +23,14 @@ function AppToday() {
     <Router>
       <div className="App">
         <Nav/>
-        <BlogPhotos/>
-      <Switch>
-        <Route path='/' exact component={Home}/>
-        <Route path='/Blog'  component={BlogPhotos}/>
-        <Route path='/Details' exact component={Details}/>
-        <Route path='/Details/:id'  component={Details}/>
-        <Route path='/Contact'  component={Contact}/>
-      </Switch>
-
+        <Switch>
+          <Route path='/' exact component={Home}/>
+          
+          <Route path='/blogphotos'  component={BlogPhotos}/>
+          <Route path='/details' component={Details}/>
+          <Route path='/details/:id'  component={Details}/>
+          <Route path='/Contact'  component={Contact}/>
+        </Switch>
     </div>
     </Router>
 
@@ -40,6 +41,13 @@ export default AppToday;
 
 const Home = () => (
   <div className='home-page'>
-      <img src='' alt=""/>
+      <img className='img-home' src={Photo} alt=""/>
+      <div className='box-home'>
+    <h1>Welcome to my Simple Blog</h1>
+   <Link to='/details'>
+     <button className='button-border'>
+        Go to Articles</button>
+    </Link>
+    </div>
   </div>
 )

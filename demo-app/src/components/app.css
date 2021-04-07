@@ -15,24 +15,31 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 1.5em;
-  color: #0e371c;
   font-size: x-large;
-  color: #0e371c;
+  min-height: 10vh;
+  z-index: 100;
 }
 
-nav > ul {
+nav > .ul-nav {
   display: flex;
-  justify-content: space-between;
-  width: 25%;
-  list-style: none;
-  list-style: #0e371c;
+  justify-content: space-around;
+  width: 50%;
+  list-style-type: none;
 }
 
-.li-color {
+.ul-nav {
   color: red;
 }
 
-.details {
+.ul-nav > a {
+  color: #0e371c;
+}
+
+.ul-nav > h3 {
+  color: #0e371c;
+}
+
+.blog-details {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   font-family: 'Inter', sans-serif;
@@ -41,12 +48,18 @@ nav > ul {
   align-items: left;
 }
 
-.details > .div-key > img {
+.blog-details .img-blog {
   height: 220px;
   width: 350px;
+  border-radius: 15px;
+  object-fit: cover;
 }
 
-.div-key {
+.blog-details .img-blog:hover {
+  transform: scaleX(-1);
+}
+
+.blog-details .div-key {
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -55,36 +68,165 @@ nav > ul {
   margin: 5px;
 }
 
-.div-key > h3 {
-  color: #0e371c;
-  font-family: "Inter", sans-serif;
-  position: relative;
-  left: -100px;
-}
-
-.div-key > img {
-  border-radius: 15px;
-  object-fit: cover;
-}
-
-.div-key > img:hover {
-  transform: scaleX(-1);
-}
-
-.div-key > button {
+.blog-details .info-box > button {
   color: #1f8742;
   background-color: transparent;
-  border: #5fc53e 3px double;
+  border: #60c885 4px solid;
   border-radius: 10px;
   width: 30%;
   height: 3em;
   font-family: 'Inter', sans-serif;
   font-weight: 900;
   position: relative;
-  left: -50px;
+  left: 50px;
 }
 
-.div-key > button:hover {
+.blog-details .info-box > button:hover {
   transform: scaleY(100px);
+}
+
+.blog-details .info-box > h3 {
+  color: #0e371c;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  left: 50px;
+}
+
+@keyframes slideBg {
+  to {
+    background-position: 250px;
+  }
+}
+
+.blog-details:before {
+  height: 0;
+  left: 50%;
+  right: 50%;
+  width: 0;
+  background: red;
+  transition: width, height, top, left, 0.3s ease-in-out;
+}
+
+.blog-details:hover:before {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: blue;
+}
+
+.form-new {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  left: 3em;
+  border-radius: 10px;
+}
+
+.form-new > input {
+  background-color: #b9e9cb;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  height: 3.5em;
+  border-color: transparent;
+}
+
+.form-new > input::placeholder {
+  position: relative;
+  left: 15px;
+}
+
+.form-new > textarea {
+  background-color: #b9e9cb;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-color: transparent;
+  border-radius: 10px;
+}
+
+.form-new > textarea::placeholder {
+  position: relative;
+  left: 10px;
+  top: 10px;
+  width: 50%;
+}
+
+.button-border, .form-new > button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.7s ease-in-out;
+  color: grey;
+  height: 3em;
+  border-radius: 5px;
+  background-color: #b9e9cb;
+  border-color: transparent;
+}
+
+.button-border:hover, .form-new > button:hover {
+  background-position: 0;
+  background-image: linear-gradient(98deg, #b9e9cb 0%, #5fc53e 25%, #1f8742 50%, #0e371c 100%);
+  animation: slideBg 2s linear infinite;
+}
+
+.contact2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #0e371c;
+}
+
+.info-contact2 {
+  width: 50%;
+  margin: 10px;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.img-details {
+  width: 80%;
+}
+
+.div-title-date {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.div-lorem-author {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 50%;
+  border: solid 1px orange;
+}
+
+.box-home {
+  width: 20em;
+  margin: 10em;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(100%, 150%);
+}
+
+.img-home {
+  width: 100%;
+  height: 50vh;
+  position: absolute;
+  z-index: -1;
+  top: 0em;
 }
 /*# sourceMappingURL=app.css.map */

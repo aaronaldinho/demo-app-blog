@@ -7,6 +7,8 @@
 $green-strong: rgb(14, 55, 28);
 $green-medium: rgb(31, 135, 66);
 $green-low: rgb(95, 197, 62);
+$green-form: rgb(185, 233, 203);
+$green-fosfo: rgb(96, 200, 133);
 
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 $font-family: 'Inter', sans-serif;
@@ -16,36 +18,44 @@ body{
   height: 100vh;
 }
 
+
+//NAV //
 nav{
-//   background-color: black;
   list-style: none;
-  // width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 1.5em;
-  color: $green-strong;
   font-size: x-large;
-  color: $green-strong;
-  &>ul{
+  min-height: 10vh;
+  z-index: 100;
+  
+  &>.ul-nav{
     display: flex;
-    justify-content: space-between;
-    width: 25%;
-    list-style: none;
-    list-style: $green-strong;
+    justify-content: space-around;
+    width: 50%;
+    list-style-type: none;  
   }
-//   &>li{
-//       color: red;
-//   }
+  
+  
 }
 
-.li-color{
-    color: red;
+.ul-nav{
+  color: red;
+  &>a{
+    color: $green-strong;
+  }
+  &>h3{
+    color: $green-strong;
+  }
+  
 }
+
+
+
 
 //Details-page
 
-.details{
-// width: 100%;
+.blog-details{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   font-family: 'Inter', sans-serif;
@@ -53,16 +63,17 @@ nav{
   justify-content: left;
   align-items: left;
   
-  &>.div-key>img{
+  .img-blog{
       height: 220px;
       width: 350px;
+        
+        border-radius: 15px;
+        object-fit: cover;
+        &:hover{
+          transform: scaleX(-1);
+        }
+      
   }
-//funktioniert
-//   &>.div-key:nth-last-of-type(5){
-//       height: 115px;
-//       border: inset 2em greenyellow ;
-//   }
-}
 
 .div-key{
     display: flex;
@@ -71,42 +82,180 @@ nav{
     align-items: center;
     line-height: 3em;
     margin: 5px;
-    
-    &>h3{
-      color: $green-strong;
-      font-family: $font-family;
-      position: relative;
-      left: -100px;
-    }
-    &>img{
-        border-radius: 15px;
-        object-fit: cover;
-      }
-    &>img:hover {
-        transform: scaleX(-1);
-      }
-    &>button{
-      color: $green-medium;
-      background-color: transparent;
-      border: $green-low 3px double ;
-      border-radius: 10px;
-      width: 30%;
-      height: 3em;
-      font-family: 'Inter', sans-serif;
-      font-weight: 900;
-      position: relative;
-      left: -50px;
-    }
-    &>button:hover{
-        transform: scaleY(100px);
-    }
+}
+.info-box{
+  &>button{
+    color: $green-medium;
+    background-color: transparent;
+    border: $green-fosfo 4px solid ;
+    border-radius: 10px;
+    width: 30%;
+    height: 3em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    position: relative;
+    left: 50px;
+  }
+  &>button:hover{
+      transform: scaleY(100px);
+  }  
+  &>h3{
+    color: $green-strong;
+    font-family: $font-family;
+    position: relative;
+    left: 50px;
+  }
 }
 
+//Contact
 
-// @media only screen and (max-width: 100px) {
-//     * {
-//       display:grid;
-//       grid-template-columns: repeat(1, 1fr);
+  
+  @keyframes slideBg{
+    to{
+      background-position: 250px;
+    }
+  }
+  &:before{
+    height: 0;
+    left: 50%;
+    right: 50%;
+    width: 0;
+    background: red;
+    transition: width, height, top, left, 0.3s ease-in-out;
+  }
+  &:hover:before{
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: blue;
+  }
+}
+
+.form-new{
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  left: 3em;
+  border-radius: 10px;
+  &>input{
+    background-color: $green-form;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    height: 3.5em;
+    border-color: transparent;
+    &::placeholder{
+      position: relative;
+      left: 15px;
+    }
+  }
+  &>textarea{
+    background-color: $green-form;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-color: transparent;
+    border-radius: 10px;
+    &::placeholder{
+      position: relative;
+      left: 10px;
+      top: 10px;
+      width: 50%;
       
-//     }
-//   }
+    }
+  }
+  &>button{
+    @extend.button-border
+  }
+}
+
+.button-border{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.7s ease-in-out;
+  color: grey;
+  height: 3em;
+  border-radius: 5px;
+  background-color: $green-form;
+  border-color: transparent;
+  
+  &:hover{
+    background-position: 0;
+    background-image: linear-gradient(
+      98deg,
+      $green-form 0%,
+      $green-low 25%,
+      $green-medium 50%,
+      $green-strong 100%,
+    );
+    animation: slideBg 2s linear infinite;
+    // transition: black 0.5s ease-in;
+    // border-color: 10px;
+  }
+}
+
+.contact2{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   color: $green-strong;
+   
+}
+
+.info-contact2{
+  width: 50%;
+  margin: 10px;
+}
+
+///details
+.details-container{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.img-details{
+  width:80%;
+}
+
+.div-title-date{
+  display: flex;
+  justify-content: space-around;
+  width: 50% ;
+}
+
+.div-lorem-author{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 50% ;
+  border: solid 1px orange;
+}
+//home 
+
+.box-home{
+  width: 20em;
+  margin: 10em;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(100%, 150%);
+
+}
+
+.img-home{
+  width: 100%;
+  height: 50vh;
+  position: absolute;
+  z-index: -1;
+  top: 0em;
+  
+}
